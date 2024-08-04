@@ -87,7 +87,7 @@ export const BookNowForm = ({ ongoing }: BookNowFormProp) => {
 
               return (
                 bookedYear === date.getFullYear() &&
-                bookedMonth === bookedMonth &&
+                bookedMonth === date.getMonth() &&
                 bookedDate === date.getDate()
               );
             })

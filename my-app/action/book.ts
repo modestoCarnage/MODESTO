@@ -56,6 +56,7 @@ export const book = async (formData: FormData) => {
   const isDateNotAvailable = await db.book.findFirst({
     where: {
       date: date,
+      status: "ongoing",
     },
   });
 
