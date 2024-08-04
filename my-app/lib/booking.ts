@@ -16,6 +16,17 @@ export const getTotals = async () => {
   return { bookings, completed };
 };
 
+export const getOngoingBooks = async () => {
+  const ongoing = await db.book.findMany({
+    where: {
+      status: "ongoing",
+      isConfirm: true,
+    },
+  });
+
+  return ongoing;
+};
+
 export const getNotConfirmBooks = async () => {
   const notConfirmBooks = await db.book.findMany({
     where: {

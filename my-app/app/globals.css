@@ -71,3 +71,11 @@
 html {
   scroll-behavior: smooth;
 }
+
+.react-calendar__tile:hover {
+  color: black;
+}
+
+.react-calendar__tile:disabled {
+  background-color: red !important;
+}

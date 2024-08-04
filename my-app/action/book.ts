@@ -53,6 +53,16 @@ export const book = async (formData: FormData) => {
     return { error: "Please fill up all the fields" };
   }
 
+  const isDateNotAvailable = await db.book.findFirst({
+    where: {
+      date: date,
+    },
+  });
+
+  if (isDateNotAvailable?.id) {
+    return { error: "Date is not available" };
+  }
+
   const [package_, price] = packages.split("|");
 
   await sendToEmail(name, email, phoneNumber, package_, date);

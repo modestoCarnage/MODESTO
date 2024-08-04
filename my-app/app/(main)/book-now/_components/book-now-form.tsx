@@ -8,12 +8,17 @@ import moment from "moment";
 import { Button } from "@/components/ui/button";
 import { book } from "@/action/book";
 import { toast } from "sonner";
+import { Book } from "@prisma/client";
 
 type ValuePiece = Date | null;
 
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-export const BookNowForm = () => {
+interface BookNowFormProp {
+  ongoing: Book[];
+}
+
+export const BookNowForm = ({ ongoing }: BookNowFormProp) => {
   const [value, onChange] = useState<Value>(new Date());
   const [pending, setTransition] = useTransition();
   const formRef = useRef<ElementRef<"form">>(null);
@@ -74,6 +79,19 @@ export const BookNowForm = () => {
         <Calendar
           onChange={onChange}
           value={value}
+          tileDisabled={({ date }) =>
+            ongoing.some((item) => {
+              const bookedMonth = new Date(item.date).getMonth();
+              const bookedYear = new Date(item.date).getFullYear();
+              const bookedDate = new Date(item.date).getDate();
+
+              return (
+                bookedYear === date.getFullYear() &&
+                bookedMonth === bookedMonth &&
+                bookedDate === date.getDate()
+              );
+            })
+          }
           className="text-white !bg-black !border-none text-xl !flex-1"
           calendarType="gregory"
         />
