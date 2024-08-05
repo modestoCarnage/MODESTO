@@ -19,7 +19,7 @@ interface BookNowFormProp {
 }
 
 export const BookNowForm = ({ ongoing }: BookNowFormProp) => {
-  const [value, onChange] = useState<Value>(new Date());
+  const [value, setValue] = useState<Value>(new Date());
   const [pending, setTransition] = useTransition();
   const formRef = useRef<ElementRef<"form">>(null);
 
@@ -73,25 +73,39 @@ export const BookNowForm = ({ ongoing }: BookNowFormProp) => {
     },
   ];
 
+  const isTileDisabled = ({ date }: { date: Date }): boolean => {
+    return ongoing.some((item) => {
+      const bookedStartDate = new Date(item.date);
+      const is22Hours = item.packages.includes("22Hours");
+
+      if (is22Hours) {
+        const bookedEndDate = new Date(bookedStartDate);
+        bookedEndDate.setDate(bookedEndDate.getDate() + 1);
+
+        return (
+          (date >= bookedStartDate && date <= bookedEndDate) ||
+          (new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1) >=
+            bookedStartDate &&
+            new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1) <=
+              bookedEndDate)
+        );
+      } else {
+        return (
+          date.getFullYear() === bookedStartDate.getFullYear() &&
+          date.getMonth() === bookedStartDate.getMonth() &&
+          date.getDate() === bookedStartDate.getDate()
+        );
+      }
+    });
+  };
+
   return (
     <div className="flex lg:flex-row flex-col gap-20 pb-20 pt-28 px-3 max-w-[65rem] mx-auto min-h-[100dvh]">
       <div className="flex items-center justify-center flex-1">
         <Calendar
-          onChange={onChange}
+          onChange={(date) => setValue(date as Date)}
           value={value}
-          tileDisabled={({ date }) =>
-            ongoing.some((item) => {
-              const bookedMonth = new Date(item.date).getMonth();
-              const bookedYear = new Date(item.date).getFullYear();
-              const bookedDate = new Date(item.date).getDate();
-
-              return (
-                bookedYear === date.getFullYear() &&
-                bookedMonth === date.getMonth() &&
-                bookedDate === date.getDate()
-              );
-            })
-          }
+          tileDisabled={isTileDisabled}
           className="text-white !bg-black !border-none text-xl !flex-1"
           calendarType="gregory"
         />
