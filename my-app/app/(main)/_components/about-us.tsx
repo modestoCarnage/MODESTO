@@ -39,7 +39,7 @@ export const AboutUs = () => {
       <div className="flex lg:flex-row flex-col items-center justify-center gap-12 mt-20">
         <div className="shrink-0">
           <Image
-            src="/owner.jpg"
+            src="/OwnerPic.jpg"
             alt="Owner"
             width={500}
             height={500}
