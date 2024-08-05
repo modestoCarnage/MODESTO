@@ -88,7 +88,7 @@ const ChatBot = () => {
     let item;
     for (let x = 0; x < triggerArray.length; x++) {
       for (let y = 0; y < replyArray.length; y++) {
-        if (triggerArray[x][y] == string) {
+        if (triggerArray[x][y]?.includes(string)) {
           item = replyArray[x];
           item = item[Math.floor(Math.random() * item.length)];
         }
@@ -146,12 +146,12 @@ const ChatBot = () => {
   }, [isOpenChatBot]);
 
   const suggestedQuestion = [
-    "Where are you located?",
-    "how do i book in your resort?",
-    "what are your contacts",
-    "what are your activities?",
-    "ano ang packages niyo",
-    "what are your rates",
+    "Where is your location?",
+    "How do i book in your resort?",
+    "What are your contacts?",
+    "Can we know what are the dates that are available?",
+    "Ano ang packages niyo?",
+    "What are your rates?",
   ];
 
   return (

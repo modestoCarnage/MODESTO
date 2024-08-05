@@ -1,5 +1,6 @@
 export const userMessage = [
   ["hi", "hey", "hello", "greetings"], //1
+  ["gabi"],
   ["sure", "yes", "no"], //2
   ["are you genius", "are you nerd", "are you intelligent"], //3
   ["i hate you", "i dont like you"], //4
@@ -53,13 +54,7 @@ export const userMessage = [
     "ano ang services nyo",
   ],
   ["offers", "What are your offers"], //27
-  [
-    //28
-    "Where is your location",
-    "Where are you located?",
-    "where are you?",
-    "where is your place?",
-  ],
+  ["where is your location?", "where are you located?", "where should i go?"],
   [
     //29
     "book",
@@ -95,6 +90,8 @@ export const userMessage = [
     "what are youre activities",
     "what are you're activities?",
   ],
+  ["how do i book in your resort"],
+  ["can we know what are the dates that are available"],
 ];
 
 export const botReply = [
@@ -105,6 +102,7 @@ export const botReply = [
     "Hey! I am Modebot you can ask me about anything in our resort like packages, location, and rates.",
     "Hi there! I am Modebot you can ask me about anything in our resort like packages, location, and rates.",
   ],
+  ["night"],
   ["Okay"], //2
   ["Yes I am!"], //3
   ["I'm sorry about that. But I like you dude."], //4
@@ -150,10 +148,7 @@ export const botReply = [
   ],
   [
     //28
-    "Modesto's farm and resort is located at Sitio 2, Sahingan, Balete, Batangas City you can search us in google, waze, maps.",
-    "Modesto's farm and resort is located at Sitio 2, Sahingan, Balete, Batangas City you can search us in google, waze, maps.",
-    "Modesto's farm and resort is located at Sitio 2, Sahingan, Balete, Batangas City you can search us in google, waze, maps.",
-    "Modesto's farm and resort is located at Sitio 2, Sahingan, Balete, Batangas City you can search us in google, waze, maps.",
+    "Modesto's, Sahingan, Balete, Batangas City you can search us in google, waze, maps.",
   ],
   [
     //30
@@ -161,10 +156,16 @@ export const botReply = [
   ],
   [
     //31
-    "You can contact our human representative in our facebook page-https://www.facebook.com/profile.php?id=100090637717825&mibextid=JRoKGi, or contact us in this phone number-xxxxxxxxxx. For more details contact Ma'am Rowena Aguado in her facebook-https://www.facebook.com/rowena.aguado?mibextid=JRoKGi",
+    "You can message https://www.facebook.com/rowena.aguado this person. Or when you clicked the contact section, you'll see the different ways to contact us. You can fill up and send us a message throught our contact form. Thank you",
   ],
   [
     //32
     "Our activities includes swimming, billiard, table hockey, darts, and many more.",
+  ],
+  [
+    "You can see the Book Now in your upper screen. When you clicked it, you will be redirect to the Reservation Process, choose a date in the calendar then put information in the form and submit it",
+  ],
+  [
+    "You can see the dates availability through our calendar. Proceed to Book Now, and the calendar will present you what dates are available and taken. Thank you.",
   ],
 ];
