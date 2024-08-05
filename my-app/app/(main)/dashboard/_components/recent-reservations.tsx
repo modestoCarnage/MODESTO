@@ -59,7 +59,7 @@ export const RecentReservations = ({
     <div className="mt-5">
       <h1 className="text-lg font-semibold">Recent Reservations</h1>
 
-      <div className="mt-3 overflow-auto text-black text-sm">
+      <div className="mt-3 text-black text-sm max-h-[22rem] overflow-auto">
         <table className="w-full">
           <thead>
             <tr>

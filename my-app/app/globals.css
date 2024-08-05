@@ -73,9 +73,21 @@ html {
 }
 
 .react-calendar__tile:hover {
-  color: black;
+  background-color: rgb(49, 49, 49) !important;
 }
 
 .react-calendar__tile:disabled {
   background-color: red !important;
+}
+
+.react-calendar__tile--now {
+  background-color: transparent !important;
+}
+
+.react-calendar__tile--active {
+  background-color: #006edc !important;
+}
+
+.react-calendar__tile--active:hover {
+  background-color: #006edc !important;
 }
